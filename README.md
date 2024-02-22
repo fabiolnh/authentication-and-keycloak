@@ -1,4 +1,4 @@
-# Authentication and Keycloak
+# Authentication and Keycloak (Currently Studying)
 
 1) OAuth 2: It was an initiative of several companies that created this open source pattern. It makes it available to someone to access your resource. It is the principal pattern to communicate with a third party platform.
    * Resource Owner: Example: A user (it can be an app/service, too) that wants an app to access his user google drive
