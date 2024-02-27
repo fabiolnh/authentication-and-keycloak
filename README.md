@@ -26,3 +26,9 @@ OBS:
       - Possibility of customization for each situation/service
       - Session Management (expiration, renew, close)
       - Authentication and Authorization based in levels (configuration of policies in different levels, such as apps, groups, functions, and permission)
+      - Email verification
+   * Important Things:
+      - If you have a group of users in another identity provider, you have to migrate it to keycloak or use IDs to refer.
+      - Roles can have other roles
+      - Realm = "Reino''. So, It is a multi-tenancy support. It is to segment the keycloak (by companies, per example).
+      - Each Realm works with an independent environment, isolating completely the identity data (users, groups, roles, etc.) from other realms in the same server Keycloak Server.
