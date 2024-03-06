@@ -1,4 +1,4 @@
-# Authentication and Keycloak (Currently Studying)
+ # Authentication and Keycloak (Currently Studying)
 
 1) OAuth 2: It an Authorization protocol. It was an initiative of several companies that created this open source pattern. It makes it available to someone to access your resource. It is the principal pattern to communicate with a third party platform.
     * Resource Owner: Example: A user (it can be an app/service, too) that wants an app to access his user google drive
@@ -39,3 +39,12 @@ OBS:
    - The tokens are formatted as JWT (Header, Payload and Signature). Do not put sensible information in JWT because it can be decoded.
    - Access Token: (OAuth2) Authorization Token to access the Application. To access the keybloak to consume it or the applications of the ecosystem.
    - ID Token: (OpenID Connect) Authentication Token. To get it, use the "scope" parameter (with value "openid") in the REST request. It will return the id_token in the JWT format, too.
+
+   - Authentication Streams ("Fluxos de Autenticação"): (OBS: Involves Authentication and Authorization)
+      1) Authorization Code: Commonly used in Web Applications. Redirects the user to login in the keycloak environment and then, keycloak redirects to the application and the process is ended. Good for mobile, too.
+      <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Authorization%20Code%20-%20Fluxo.png" width="100%">
+
+
+      2) Implicit Flow:
+      3) Hybrid Flow:
+      4) Resource Owner Password Credential
