@@ -29,6 +29,13 @@ OBS:
       - Email verification
    * Important Things:
       - If you have a group of users in another identity provider, you have to migrate it to keycloak or use IDs to refer.
-      - Roles can have other roles
+      - Roles (what the user can do in the keycloak) can have other roles
       - Realm = "Reino''. So, It is a multi-tenancy support. It is to segment the keycloak (by companies, per example).
       - Each Realm works with an independent environment, isolating completely the identity data (users, groups, roles, etc.) from other realms in the same Keycloak Server.
+      - Group: A group of Roles
+      - You can define one internalization for each Realm (different languages for each Realm)
+      - Client: The application that accesses the resource from Resource Server will be the "Client". So, when the Application needs to use the Identity Provider (Keycloak), this application will be the "Client".
+
+   - The tokens are formatted as JWT (Header, Payload and Signature). Do not put sensible information in JWT because it can be decoded.
+   - Access Token: (OAuth2) Authorization Token to access the Application. To access the keybloak to consume it or the applications of the ecosystem.
+   - ID Token: (OpenID Connect) Authentication Token. To get it, use the "scope" parameter (with value "openid") in the REST request. It will return the id_token in the JWT format, too.
