@@ -43,7 +43,9 @@ OBS:
    - Authentication Streams ("Fluxos de Autenticação"): (OBS: Involves Authentication and Authorization)
       1) Authorization Code: Commonly used in Web Applications. Redirects the user to login in the keycloak environment and then, keycloak redirects to the application and the process is ended. Good for mobile, too.
       <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Authorization%20Code%20-%20Fluxo.png" width="100%">
-
+         - Implementation:
+           * In the Frontend of the App: create a GET to "KeycloakAddress"/realms/.../protocol/openid-connect/auth (with query params: client_id, redirect_url:"backend endpoint url", response_type:'code', scope:'openid'). It will redirect to login in the Keycloak.
+           * In the Backend (in the Callback Endpoint): create a POST to "KeycloakAddress"/realms/.../protocol/openid-connect/token" (with params: client_id, grant_type:'authorization_code', code:"code from response", redirect_uri:"frontend url for callback"
 
       2) Implicit Flow:
       3) Hybrid Flow:
