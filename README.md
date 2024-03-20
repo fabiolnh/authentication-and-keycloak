@@ -48,6 +48,11 @@ OBS:
           - In the Frontend of the App: create a GET to "KeycloakAddress"/realms/.../protocol/openid-connect/auth (with query params: client_id, redirect_url:"backend endpoint url", response_type:'code', scope:'openid'). It will redirect to login in the Keycloak.
           - In the Backend (in the Callback Endpoint): create a POST to "KeycloakAddress"/realms/.../protocol/openid-connect/token" (with params: client_id, grant_type:'authorization_code', code:"code from response", redirect_uri:"frontend url for callback"
 
+         Authorization Code Attack:
+
+          - Replay Attack: In the Network, the attacker captures the callback url with the same code, and does a replay of the call back url concurrently. The keycloak returns two valid tokens. How to be protected? With "Nonce" (Number Used Once). To implement it, it has to be created an aleatory value and kept in the user session. With this number, send it to keycloak in the body of "/auth" (url: /login in front). Then, verify if the nonce sent is equal to the noncy received in the token. This strategy works when we do not have a Client totally public. (Because the code is in the javascript of the front end). Several libs already implement it.
+          - CSRF Attack: (Cross Site Request Forgery) An attack that forces the user to execute a call using the values in the session/cookies of the website to do other actions/intentions (in another tab of the browser). How to be protected? With another code ("state" param). It has to be sent, too, through "/auth" in the body. This "state", when it returns to the backend, it returns in the url, not inside the token (differently from "nonce"). Verify if it is equal. Why the attacker cannot do the attack with this implementation? The attacker will not have access to the state. Even if he figure out the state, the nonce will not be equal (so, if you implement both, you will be protected)
+
       3) Implicit Flow:
       4) Hybrid Flow:
       5) Resource Owner Password Credential
