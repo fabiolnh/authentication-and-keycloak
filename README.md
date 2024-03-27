@@ -59,4 +59,5 @@ OBS:
       3) Hybrid Flow: Similar to Implicit Flow. It is the union of Implicit Flow + Authorization Code. The intention is to work with the front end app, too. The front end receives the Authorization Code and the Token. There is more security and performance. You can use single sign on, too.
       <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Hybrid%20Flow.png" width="70%">
 
-      4) Resource Owner Password Credential: 
+      4) Resource Owner Password Credential (or Direct Grant): The user accesses the application, but the application will not redirect the user to keycloak. The Application has its own login form. after login, there is a http request to the identity server, then return the token to the client application. The application manipulates the credentials. There are some security risks on it. It is recommended only for trustable environments and the need for a simple authentication. You lose some resources, such as: google login, facebook login, two factor, etc. 
+      <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Resource%20Owner%20Password%20Credentials.png" width="70%">
