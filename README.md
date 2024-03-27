@@ -56,5 +56,7 @@ OBS:
       2) Implicit Flow: Simplify the process of obtaining a token. Only the frontend does the process (SPA). Differently from "Authorization Code", with this process, we already received the token in the url (without the exchanging of the "code"). Put the token in the cookie or wherever you want. If you think, the token in the url involves risks. It is used only for an intern environment, where we have trustability. Also, URLs usually are recorded historically or by monitoring in the network (another risk). This process is faster than "Authorization Code", but it is too risky.
       <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Implicit%20Flow.png" width="70%">
 
-      4) Hybrid Flow: 
-      5) Resource Owner Password Credential: 
+      3) Hybrid Flow: Similar to Implicit Flow. It is the union of Implicit Flow + Authorization Code. The intention is to work with the front end app, too. The front end receives the Authorization Code and the Token. There is more security and performance. You can use single sign on, too.
+      <img src="https://github.com/fabiolnh/authentication-and-keycloak/blob/main/assets/Hybrid%20Flow.png" width="70%">
+
+      4) Resource Owner Password Credential: 
